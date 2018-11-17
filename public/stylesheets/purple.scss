@@ -1,0 +1,78 @@
+@import "style.scss";
+
+$white: ghostwhite;
+$light-purple: #9575CD;
+$purple: #673AB7;
+$dark-purple: #522E92;
+$darkest-purple: #3d226d;
+
+
+//document
+body {
+  background: $white;
+}
+
+main {
+  background: $light-purple;
+}
+
+h1 {
+  color: $white;
+  border-bottom: $white 1px solid;
+}
+
+.button  {
+  &:hover {
+    background-color: $dark-purple;
+  }
+
+  &:active {
+    background-color: $darkest-purple;
+  }
+}
+
+//show notes
+fieldset {
+  border: 1px $white solid;
+}
+
+legend {
+  color: $white;
+}
+
+.allNotes {
+  div {
+    color: $white;
+  }
+
+  #priority {
+
+    #prioIcon:before {
+      content: url("../media/priorityIconPurple.svg");
+    }
+  }
+}
+
+.noNote {
+  color: $white;
+}
+
+//save & edit Note
+.note {
+  label {
+    color: $white;
+  }
+}
+
+.button {
+  background-color: $purple;
+  color: $white;
+  border: $purple;
+  box-shadow: 2px 2px 1px 0 rgba(0,0,0,0.75);
+}
+
+//notes in general
+.note > input, .note > textarea, .allNotes > textarea {
+  background: $white;
+  color: $darkest-purple;
+}

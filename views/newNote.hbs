@@ -1,0 +1,32 @@
+<main>
+    <section>
+        <header>
+            <h1>{{title}}</h1>
+        </header>
+        <article>
+            <form action='/createNote' method='post' class="note">
+                <label for="noteTitle">Titel</label>
+                <input type="text" name="noteTitle" id="noteTitle" required autofocus/>
+
+                <label for="description">Beschreibung</label>
+                <textarea class="noteTextarea" name="description" id="description"></textarea>
+
+                <label for="priority">Priorität</label>
+                <input type="number" name="priority" min="1" max="5" id="priority" required>
+
+                <label for="dueDate">Erledigt bis</label>
+                <input type="date" name="dueDate" id="dueDate" placeholder="" required>
+
+                <div class="checkbox">
+                    <label for="state"><input id="state" type="checkbox" name="state">Erledigt!</label>
+                </div>
+
+                <div class="buttons">
+                    <button name="save" type="submit" class="button" value="Anlegen">Anlegen</button>
+                    <a href="./" class="button">Abbrechen</a>
+                </div>
+            </form>
+        </article>
+    </section>
+</main>
+

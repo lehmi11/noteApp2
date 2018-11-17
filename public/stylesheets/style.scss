@@ -1,0 +1,281 @@
+$white: ghostwhite;
+$peach: peachpuff;
+$orange: #FFB26D;
+$dark-orange: #ff8a21;
+$darkest-orange: #d46400;
+
+//document
+body {
+  background: $peach;
+  font-size: 1em;
+  font-family: "URW Gothic L", "Helvetica", "Arial", sans-serif;
+}
+
+main {
+  background: $white;
+  margin: 50px auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+h1 {
+  color: $orange;
+  border-collapse: collapse;
+  border-bottom: $orange 1px solid;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.button:focus {
+  outline: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.button  {
+  &:hover {
+    background-color: $dark-orange;
+  }
+
+  &:active {
+    background-color: $darkest-orange;
+  }
+}
+
+//header navigation
+.mainButtons {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: center;
+
+  .sort {
+    flex-direction: column;
+    flex-flow: column wrap;
+  }
+
+  .button {
+    display: block;
+    width: 98%;
+  }
+
+  a.button {
+    width: auto;
+  }
+}
+
+//show notes
+fieldset {
+  border: 1px $orange solid;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+legend {
+  color: $orange;
+  font-weight: bold;
+}
+
+.allNotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 0.3em;
+
+  #dueDate {
+    grid-column-start: 1;
+    align-self: end;
+  }
+
+  #priority {
+    grid-column-start: 2;
+    justify-self: end;
+    #prioIcon:before {
+      content: url("../media/priorityIcon.svg");
+      display: inline-block;
+    }
+  }
+
+  textarea {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  #erledigt {
+    grid-column-start: 1;
+  }
+
+  #editButton {
+    grid-column-start: 2;
+    justify-self: end;
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    .button {
+      margin-right: 0;
+    }
+  }
+}
+
+.noNote {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+//footer button
+footer {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  .button {
+    display: block;
+    width: 98%;
+  }
+}
+
+//save & edit Note
+.note {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  grid-row-gap: 0.3em;
+}
+
+input[type="checkbox"] {
+  margin-left: -1px;
+}
+
+div.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: $orange;
+  font-size: 1rem;
+  color: $white;
+  border: $dark-orange;
+  padding: 5px 10px 5px 10px;
+  border-radius: 3px;
+  margin: 5px 10px 0 0;
+  box-shadow: 2px 2px 1px 0 $peach;
+}
+
+//notes in general
+.note > input {
+  border-radius: 3px;
+  border: 1px;
+  background: $peach;
+  font-size: 1rem;
+  height: 1.5rem;
+}
+
+.noteTextarea {
+  border-radius: 3px;
+  border: 1px;
+  background: $peach;
+  height: 5rem;
+  font-size: 1.4em;
+}
+
+//media queries
+@media screen and (min-width: 53.5em) {
+  //document
+  body {
+    padding: 0 4em;
+  }
+
+  //header navigation
+  .mainButtons {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    #sort {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #styleswitcher, #create {
+      justify-self: end;
+    }
+
+    #done {
+      width: fit-content;
+    }
+
+    .button {
+      width: auto;
+      margin-bottom: 5px;
+    }
+  }
+
+  //show notes
+  .allNotes {
+    grid-template-columns: 5.5em 1fr 1fr;
+
+    label {
+      font-size: 1.05em;
+    }
+
+    #dueDate {
+      grid-column-start: 2;
+    }
+
+    #priority {
+      grid-column-start: 3;
+    }
+
+    textarea {
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+
+    #erledigt {
+      grid-column-start: 2;
+    }
+
+    #editButton {
+      grid-column-start: 3;
+    }
+  }
+
+  //save & edit Note
+  .note {
+    grid-template-columns: 8em 1fr;
+    grid-column-gap: 0.5em;
+
+    label {
+      justify-self: end;
+      align-self: center;
+    }
+
+    .checkbox {
+      grid-column-start: 2;
+      justify-self: start;
+      align-self: center;
+    }
+
+    .buttons {
+      grid-row-start: 6;
+      grid-column-start: 2;
+    }
+  }
+
+  //footer button
+  footer {
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-bottom: 5px;
+
+    .button {
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<main>
+    <header class="mainButtons">
+        <div id="sort">
+            <a href="?sortBy=priority&orderDirection=-1" class="button" id="sortByImportanceButton">Sort by importance</a>
+            <a href="?sortBy=dueDate&orderDirection=-1" class="button" id="sortByDueDate">Sort by due Date</a>
+            <a href="?sortBy=createDate&orderDirection=-1" class="button" id="sortByCreateDate">Sort by created Date</a>
+        </div>
+        <div id="styleswitcher">
+            <form action="{{changeTheme}}" methot="get">
+                <input type="submit" class="button" value="Style Switcher">
+            </form>
+        </div>
+        <div id="done">
+            <a href="./?showOnlyDoneNotes=false" class="button active">Alle anzeigen</a>
+            <a href="./?showOnlyDoneNotes=true" class="button">Fertige verbergen</a>
+        </div>
+        <div id="create">
+            <form action="/createNote" method="get">
+                <input type="submit" class="button" value="Create new Note">
+            </form>
+        </div>
+    </header>
+
+    <section>
+        <header>
+            <h1>{{title}}</h1>
+        </header>
+        <article>
+            {{#if notes}}
+                {{#each notes}}
+                    <fieldset>
+                        <legend>{{noteTitle}}</legend>
+                        <article class="allNotes">
+                            <div id="dueDate">
+                                <label>Zu erledigen bis: </label>{{dueDate}}
+                            </div>
+                            <div id="priority">
+                                {{#times priority}}
+                                    <span id="prioIcon"></span>
+                                {{/times}}
+                            </div>
+
+                            <textarea class="noteTextarea" readonly>{{description}}</textarea>
+
+                            <div id="erledigt">
+                                <label for="state"><input id="state" type="checkbox" name="state" {{#if this.state}}
+                                                          checked="checked" {{/if}}disabled>Erledigt!</label>
+                            </div>
+
+                            <div id="editButton">
+                                <a href="./editNote/{{this._id}}" class="button">Editieren</a>
+                            </div>
+                        </article>
+                    </fieldset>
+                {{/each}}
+            {{else}}
+                <div class="noNote">
+                    <span>Zur Zeit existieren keine Todos 😄</span>
+                </div>
+            {{/if}}
+        </article>
+    </section>
+    <footer>
+        <form action="/createNote" method="get">
+            <input type="submit" class="button" value="Create new Note">
+        </form>
+    </footer>
+</main>

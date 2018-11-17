@@ -1,0 +1,188 @@
+body {
+  background: peachpuff;
+  font-size: 1em;
+  font-family: "URW Gothic L", "Helvetica", "Arial", sans-serif; }
+
+main {
+  background: ghostwhite;
+  margin: 50px auto;
+  padding: 10px 20px;
+  border-radius: 5px; }
+
+h1 {
+  color: #FFB26D;
+  border-collapse: collapse;
+  border-bottom: #FFB26D 1px solid; }
+
+a:link {
+  text-decoration: none; }
+
+.button:focus {
+  outline: 0; }
+
+textarea {
+  resize: none; }
+
+.button:hover {
+  background-color: #ff8a21; }
+.button:active {
+  background-color: #d46400; }
+
+.mainButtons {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: center; }
+  .mainButtons .sort {
+    flex-direction: column;
+    flex-flow: column wrap; }
+  .mainButtons .button {
+    display: block;
+    width: 98%; }
+  .mainButtons a.button {
+    width: auto; }
+
+fieldset {
+  border: 1px #FFB26D solid;
+  border-radius: 3px;
+  margin-bottom: 10px; }
+
+legend {
+  color: #FFB26D;
+  font-weight: bold; }
+
+.allNotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 0.3em; }
+  .allNotes #dueDate {
+    grid-column-start: 1;
+    align-self: end; }
+  .allNotes #priority {
+    grid-column-start: 2;
+    justify-self: end; }
+    .allNotes #priority #prioIcon:before {
+      content: url("../media/priorityIcon.svg");
+      display: inline-block; }
+  .allNotes textarea {
+    grid-column-start: 1;
+    grid-column-end: 3; }
+  .allNotes #erledigt {
+    grid-column-start: 1; }
+  .allNotes #editButton {
+    grid-column-start: 2;
+    justify-self: end;
+    margin-top: 15px;
+    margin-bottom: 5px; }
+    .allNotes #editButton .button {
+      margin-right: 0; }
+
+.noNote {
+  text-align: center;
+  font-size: 1.1rem; }
+
+footer {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 10px; }
+  footer .button {
+    display: block;
+    width: 98%; }
+
+.note {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: row;
+  grid-row-gap: 0.3em; }
+
+input[type="checkbox"] {
+  margin-left: -1px; }
+
+div.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px; }
+
+.button {
+  background-color: #FFB26D;
+  font-size: 1rem;
+  color: ghostwhite;
+  border: #ff8a21;
+  padding: 5px 10px 5px 10px;
+  border-radius: 3px;
+  margin: 5px 10px 0 0;
+  box-shadow: 2px 2px 1px 0 peachpuff; }
+
+.note > input {
+  border-radius: 3px;
+  border: 1px;
+  background: peachpuff;
+  font-size: 1rem;
+  height: 1.5rem; }
+
+.noteTextarea {
+  border-radius: 3px;
+  border: 1px;
+  background: peachpuff;
+  height: 5rem;
+  font-size: 1.4em; }
+
+@media screen and (min-width: 53.5em) {
+  body {
+    padding: 0 4em; }
+
+  .mainButtons {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr; }
+    .mainButtons #sort {
+      display: flex;
+      flex-direction: row; }
+    .mainButtons #styleswitcher, .mainButtons #create {
+      justify-self: end; }
+    .mainButtons #done {
+      width: fit-content; }
+    .mainButtons .button {
+      width: auto;
+      margin-bottom: 5px; }
+
+  .allNotes {
+    grid-template-columns: 5.5em 1fr 1fr; }
+    .allNotes label {
+      font-size: 1.05em; }
+    .allNotes #dueDate {
+      grid-column-start: 2; }
+    .allNotes #priority {
+      grid-column-start: 3; }
+    .allNotes textarea {
+      grid-column-start: 2;
+      grid-column-end: 4; }
+    .allNotes #erledigt {
+      grid-column-start: 2; }
+    .allNotes #editButton {
+      grid-column-start: 3; }
+
+  .note {
+    grid-template-columns: 8em 1fr;
+    grid-column-gap: 0.5em; }
+    .note label {
+      justify-self: end;
+      align-self: center; }
+    .note .checkbox {
+      grid-column-start: 2;
+      justify-self: start;
+      align-self: center; }
+    .note .buttons {
+      grid-row-start: 6;
+      grid-column-start: 2; }
+
+  footer {
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-bottom: 5px; }
+    footer .button {
+      width: auto; } }
+
+/*# sourceMappingURL=style.css.map */
